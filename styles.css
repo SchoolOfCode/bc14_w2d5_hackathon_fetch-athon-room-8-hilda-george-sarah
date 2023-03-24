@@ -14,16 +14,19 @@ body {
   }
   
 
-.btn-group button {
-  text-align: center;  
+.btn-group button{
   background-color: #5fe86f; /* Green background */
     border: 1px solid rgb(83, 190, 83); /* Green border */
     color: black; /* White text */
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
-    
-  }
+}
+
+.btn-group {
+    width: 100%;
+    text-align: center;
+}
   
   .btn-group button:not(:last-child) {
     border-right: none; /* Prevent double borders */
