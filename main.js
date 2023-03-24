@@ -33,8 +33,9 @@ HTML/ CSS
 - Buttons looking like keyboard keys (animate if we have time)
 
 - Create a fetch request for one multiple choice question at a time, for the computer category, with a difficulty of easy.
-- Display the text content of the question on the page. 
-- Create buttons for each possible answer
+- Display the text content of the question on the page. :)
+- Create buttons for each possible answer 
+
     - Link each button to an answer index.
     - Display text content above each button.
 - Get input from user for the answer.
@@ -50,6 +51,7 @@ HTML/ CSS
 - When user has answered 10 questions, display a message saying "You're a computerwiz!"
 */
 let question = document.querySelector("h2");
+let answersArr = [];
 
 async function fetchTrivia () {
     const triviaRequest = await fetch("https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple");
@@ -58,9 +60,30 @@ async function fetchTrivia () {
 //this gives us the question.
     console.log(triviaData.results[0].question);
     let uncodedQuestion = triviaData.results[0].question;
-    uncodedQuestion.replace(`&#039;`, "'");
-    uncodedQuestion.replace(`&quot;`, `"`);
-    question.textContent = uncodedQuestion;
+   // uncodedQuestion.replace(`&#039;`, "'");
+    //uncodedQuestion.replace(`&quot;`, `"`);
+    //question.textContent = uncodedQuestion;
+    let correctAnswer = triviaData.results[0].correct_answer;
+    let incorrectAnswers = triviaData.results[0].incorrect_answers;
+     
+    incorrectAnswers.push(correctAnswer);
+    
+    let i = 0;
+    while (incorrectAnswers.length > i) {
+        let randomIndex = Math.floor(Math.random() * incorrectAnswers.length);
+        answersArr.push(incorrectAnswers[randomIndex]);
+        i++;
+    }
+    console.log(answersArr);
 }
 fetchTrivia();
+
+const buttonOne = document.querySelector("#buttonOne")
+const buttonTwo = document.querySelector("#buttonTwo")
+const buttonThree = document.querySelector("#buttonThree")
+const buttonCorrect = document.querySelector("#buttonCorrect")
+
+
+
+//buttonOne.textContent 
 
