@@ -26,15 +26,16 @@ getword()
 */
 /*
 HTML/ CSS
-- Black background :)
-- Green, computery text :) 
-- Create a Heading that says "Computerwiz Quiz" :)
+- Black background😀
+- Green, computery text😀
+- Create a Heading that says "Computerwiz Quiz"😀
 - Entire page like a computer screen
 - Buttons looking like keyboard keys (animate if we have time)
 
-- Create a fetch request for one multiple choice question at a time, for the computer category, with a difficulty of easy.
-- Display the text content of the question on the page. :)
-- Create buttons for each possible answer 
+- Create a fetch request for one multiple choice question at a time, for the computer category, with a difficulty of easy😀
+- Display the text content of the question on the page. 😀
+- Randomize answer order 😀
+- Create buttons for each possible answer 😀
 
     - Link each button to an answer index.
     - Display text content above each button.
@@ -51,7 +52,10 @@ HTML/ CSS
 - When user has answered 10 questions, display a message saying "You're a computerwiz!"
 */
 let question = document.querySelector("h2");
-let answersArr = [];
+const buttonOne = document.querySelector("#buttonOne")
+const buttonTwo = document.querySelector("#buttonTwo")
+const buttonThree = document.querySelector("#buttonThree")
+const buttonFour = document.querySelector("#buttonCorrect")
 
 async function fetchTrivia () {
     const triviaRequest = await fetch("https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple");
@@ -71,18 +75,12 @@ async function fetchTrivia () {
           currentIndex--;
           [incorrectAnswers[currentIndex], incorrectAnswers[randomIndex]] = [
             incorrectAnswers[randomIndex], incorrectAnswers[currentIndex]];
-        console.log(incorrectAnswers);}
-
+        console.log(incorrectAnswers);
+    
+        buttonOne.textContent = incorrectAnswers[0] 
+        buttonTwo.textContent = incorrectAnswers[1] 
+        buttonThree.textContent = incorrectAnswers[2]
+        buttonFour.textContent = incorrectAnswers[3]}
         fetchTrivia()
-
-
-
-const buttonOne = document.querySelector("#buttonOne")
-const buttonTwo = document.querySelector("#buttonTwo")
-const buttonThree = document.querySelector("#buttonThree")
-const buttonCorrect = document.querySelector("#buttonCorrect")
-
-
-
 //buttonOne.textContent 
 
