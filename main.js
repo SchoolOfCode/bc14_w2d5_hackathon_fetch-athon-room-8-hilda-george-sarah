@@ -65,6 +65,7 @@ var maxScore = 10;
 var containerWidth = 500;
 var percentage = 0
 var progressBarWidth = 0;
+var instructions = document.querySelector(".instructions");
 
 async function fetchTrivia () {
     const triviaRequest = await fetch("https://opentdb.com/api.php?amount=1&category=18&type=multiple");
@@ -73,9 +74,8 @@ async function fetchTrivia () {
 //this gives us the question.
     console.log(triviaData.results[0].question);
     let uncodedQuestion = triviaData.results[0].question;
-   // uncodedQuestion.replace(`&#039;`, "'");
-    //uncodedQuestion.replace(`&quot;`, `"`);
-    question.textContent = uncodedQuestion;
+
+    question.innerHTML = uncodedQuestion;
     correctAnswer = triviaData.results[0].correct_answer;
     incorrectAnswers = triviaData.results[0].incorrect_answers;
     incorrectAnswers.push(correctAnswer);
@@ -86,10 +86,10 @@ async function fetchTrivia () {
             incorrectAnswers[randomIndex], incorrectAnswers[currentIndex]];
         console.log(incorrectAnswers);
     
-        buttonOne.textContent = incorrectAnswers[0] 
-        buttonTwo.textContent = incorrectAnswers[1] 
-        buttonThree.textContent = incorrectAnswers[2]
-        buttonFour.textContent = incorrectAnswers[3]
+        buttonOne.innerHTML = incorrectAnswers[0] 
+        buttonTwo.innerHTML = incorrectAnswers[1] 
+        buttonThree.innerHTML = incorrectAnswers[2]
+        buttonFour.innerHTML = incorrectAnswers[3]
             
         
     
@@ -99,13 +99,16 @@ async function fetchTrivia () {
 //buttonOne.textContent 
 
 function scoreCount1 () {
-    if (correctAnswer == incorrectAnswers[0]){
+    if (correctAnswer === incorrectAnswers[0]){
         score ++
         percentage = score / maxScore;
         progressBarWidth = percentage * containerWidth;
         document.getElementById("progress-bar").style.width = progressBarWidth + "px";
     }
-
+    if (score === 10) {
+        instructions.textContent = "Congratulations! You're a computerwiz!"
+        instructions.style.fontSize = "50px"
+    }
     console.log(score)
     displayScore.textContent = `Score: ${score}`;
     fetchTrivia()
@@ -116,6 +119,10 @@ function scoreCount2 () {
         percentage = score / maxScore;
         progressBarWidth = percentage * containerWidth;
         document.getElementById("progress-bar").style.width = progressBarWidth + "px";
+    }
+    if (score === 10) {
+        instructions.textContent = "Congratulations! You're a computerwiz!"
+        instructions.style.fontSize = "50px"
     }
     console.log(score)
     displayScore.textContent = `Score: ${score}`;
@@ -128,6 +135,10 @@ function scoreCount3 () {
         progressBarWidth = percentage * containerWidth;
         document.getElementById("progress-bar").style.width = progressBarWidth + "px";
     }
+    if (score === 10) {
+        instructions.textContent = "Congratulations! You're a computerwiz!"
+        instructions.style.fontSize = "50px"
+    }
     console.log(score)
     displayScore.textContent = `Score: ${score}`;
     fetchTrivia()
@@ -138,6 +149,10 @@ function scoreCount4 () {
         percentage = score / maxScore;
         progressBarWidth = percentage * containerWidth;
         document.getElementById("progress-bar").style.width = progressBarWidth + "px";
+    }
+    if (score === 10) {
+        instructions.textContent = "Congratulations! You're a computerwiz!"
+        instructions.style.fontSize = "50px"
     }
     console.log(score)
     displayScore.textContent = `Score: ${score}`;

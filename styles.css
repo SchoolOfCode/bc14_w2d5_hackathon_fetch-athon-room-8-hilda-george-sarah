@@ -1,19 +1,41 @@
 body {
     background-color: black;
     color: rgb(110, 186, 85);
+    text-align: center
+    font-family: 'Courier New', Courier, monospace;
   }
 
   h1 {
     color: rgb(110, 186, 85);
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
   }
 
   h2 {
     color: rgb(110, 186, 85);
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
   }
-  
 
+  h4 {
+    color: rgb(110, 186, 85);
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+  }
+
+  p {
+    color: rgb(110, 186, 85);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+  }
+
+img {
+  align-items: center;
+  size: 300px;
+}
 .btn-group button{
   background-color: #5fe86f; /* Green background */
     border: 1px solid rgb(83, 190, 83); /* Green border */
@@ -21,6 +43,7 @@ body {
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .btn-group {
