@@ -13,3 +13,14 @@ async function fetchTrivia () {
 }
 
 fetchTrivia()
+
+async function fetchDadJokes () {
+    const jokeRequest = await fetch("https://icanhazdadjoke.com/", {
+        headers: { accept: "application/json" },
+      });
+    const jokeData = await jokeRequest.json();
+    console.log(jokeData);
+
+}
+
+fetchDadJokes();
