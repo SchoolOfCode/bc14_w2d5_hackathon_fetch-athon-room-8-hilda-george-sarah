@@ -5,15 +5,6 @@ console.log(pokeData)
 }
 
 fetchPoke()
-
-async function fetchTrivia () {
-    const triviaRequest = await fetch("https://opentdb.com/api.php?amount=10");
-    const triviaData = await triviaRequest.json();
-    console.log(triviaData)
-}
-
-fetchTrivia()
-
 async function fetchDadJokes () {
     const jokeRequest = await fetch("https://icanhazdadjoke.com/", {
         headers: { accept: "application/json" },
@@ -58,3 +49,18 @@ HTML/ CSS
 - When user has answered 10 questions, display a gif showing celebration
 - When user has answered 10 questions, display a message saying "You're a computerwiz!"
 */
+let question = document.querySelector("h2");
+
+async function fetchTrivia () {
+    const triviaRequest = await fetch("https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple");
+    const triviaData = await triviaRequest.json();
+    console.log(triviaData)
+//this gives us the question.
+    console.log(triviaData.results[0].question);
+    let uncodedQuestion = triviaData.results[0].question;
+    uncodedQuestion.replace(`&#039;`, "'");
+    uncodedQuestion.replace(`&quot;`, `"`);
+    question.textContent = uncodedQuestion;
+}
+fetchTrivia();
+
