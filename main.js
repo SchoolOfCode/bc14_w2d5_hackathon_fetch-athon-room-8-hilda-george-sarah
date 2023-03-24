@@ -24,3 +24,11 @@ async function fetchDadJokes () {
 }
 
 fetchDadJokes();
+
+async function getword() {
+    var fetchWorld = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
+    var wordData = await fetchWorld.json()
+    console.log(wordData)
+}
+
+getword()
