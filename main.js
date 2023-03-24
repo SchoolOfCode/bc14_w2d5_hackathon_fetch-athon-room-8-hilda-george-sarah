@@ -58,8 +58,8 @@ async function fetchTrivia () {
 //this gives us the question.
     console.log(triviaData.results[0].question);
     let uncodedQuestion = triviaData.results[0].question;
-    //uncodedQuestion = uncodedQuestion.replace("&#039;"/g, "'");
-    //uncodedQuestion = uncodedQuestion.replace('&quot;'/g',`"`);
+    //uncodedQuestion = uncodedQuestion.replace("&#039;"/g, "\'");
+    //uncodedQuestion = uncodedQuestion.replace("&quot;"/g,`\"`);
     question.textContent = uncodedQuestion;
 }
 fetchTrivia();
