@@ -1,7 +1,7 @@
 body {
     background-color: black;
     color: rgb(110, 186, 85);
-    text-align: center
+    text-align: center;
     font-family: 'Courier New', Courier, monospace;
   }
 
@@ -34,7 +34,8 @@ body {
 
 img {
   align-items: center;
-  size: 300px;
+  height: 100px;
+  width: auto;
 }
 .btn-group button{
   background-color: #5fe86f; /* Green background */
