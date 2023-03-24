@@ -3,17 +3,26 @@ body {
     color: rgb(110, 186, 85);
   }
 
-  h1 {color: rgb(110, 186, 85);}
+  h1 {
+    color: rgb(110, 186, 85);
+    text-align: center;
+  }
 
-  h2 {color: rgb(110, 186, 85);}
+  h2 {
+    color: rgb(110, 186, 85);
+    text-align: center;
+  }
+  
 
 .btn-group button {
-    background-color: #5fe86f; /* Green background */
+  text-align: center;  
+  background-color: #5fe86f; /* Green background */
     border: 1px solid rgb(83, 190, 83); /* Green border */
     color: black; /* White text */
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
+    
   }
   
   .btn-group button:not(:last-child) {
@@ -30,4 +39,21 @@ body {
   /* Add a background color on hover */
   .btn-group button:hover {
     background-color: #3e8e41;
+    
+  }
+
+  .progress-bar-container {
+    width: 500px;
+    height: 20px;
+    background-color: #ddd;
+    margin: auto;
+  
+  }
+  .progress-bar {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+   
+  
   }

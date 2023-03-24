@@ -37,9 +37,9 @@ HTML/ CSS
 - Randomize answer order 😀
 - Create buttons for each possible answer 😀
 
-    - Link each button to an answer index.
-    - Display text content above each button.
-- Get input from user for the answer.
+    - Link each button to an answer index.😀
+    - Display text content above each button.😀
+- Get input from user for the answer.😀
 - After user has answered, the correct answer button becomes green.
 
 - Create a progress bar
@@ -59,9 +59,15 @@ const buttonFour = document.querySelector("#buttonCorrect")
 let score = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
+const displayScore = document.querySelector("h4");
+displayScore.textContent = `Score: ${score}`
+var maxScore = 10;
+var containerWidth = 500;
+var percentage = 0
+var progressBarWidth = 0;
 
 async function fetchTrivia () {
-    const triviaRequest = await fetch("https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple");
+    const triviaRequest = await fetch("https://opentdb.com/api.php?amount=1&category=18&type=multiple");
     const triviaData = await triviaRequest.json();
     console.log(triviaData)
 //this gives us the question.
@@ -95,38 +101,46 @@ async function fetchTrivia () {
 function scoreCount1 () {
     if (correctAnswer == incorrectAnswers[0]){
         score ++
+        percentage = score / maxScore;
+        progressBarWidth = percentage * containerWidth;
+        document.getElementById("progress-bar").style.width = progressBarWidth + "px";
     }
-    else{
-        score = score - 1 ;
-    }
+
     console.log(score)
+    displayScore.textContent = `Score: ${score}`;
     fetchTrivia()
 }
 function scoreCount2 () {
     if (correctAnswer == incorrectAnswers[1]){
         score ++
+        percentage = score / maxScore;
+        progressBarWidth = percentage * containerWidth;
+        document.getElementById("progress-bar").style.width = progressBarWidth + "px";
     }
-    else{
-        score = score - 1 ;
-    }
+    console.log(score)
+    displayScore.textContent = `Score: ${score}`;
     fetchTrivia()
 }
 function scoreCount3 () {
     if (correctAnswer == incorrectAnswers[2]){
         score ++
+        percentage = score / maxScore;
+        progressBarWidth = percentage * containerWidth;
+        document.getElementById("progress-bar").style.width = progressBarWidth + "px";
     }
-    else{
-        score = score - 1 ;
-    }
+    console.log(score)
+    displayScore.textContent = `Score: ${score}`;
     fetchTrivia()
 }
 function scoreCount4 () {
     if (correctAnswer == incorrectAnswers[3]){
         score ++
+        percentage = score / maxScore;
+        progressBarWidth = percentage * containerWidth;
+        document.getElementById("progress-bar").style.width = progressBarWidth + "px";
     }
-    else{
-        score = score - 1 ;
-    }
+    console.log(score)
+    displayScore.textContent = `Score: ${score}`;
     fetchTrivia()
 }
 
@@ -134,3 +148,4 @@ buttonOne.addEventListener("click", scoreCount1);
 buttonTwo.addEventListener("click", scoreCount2);
 buttonThree.addEventListener("click", scoreCount3);
 buttonFour.addEventListener("click", scoreCount4);
+
