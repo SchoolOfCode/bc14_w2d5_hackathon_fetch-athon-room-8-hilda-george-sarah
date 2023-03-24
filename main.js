@@ -33,12 +33,11 @@ async function getword() {
 
 getword()
 */
-
 /*
 HTML/ CSS
-- Black background
-- Green, computery text
-- Create a Heading that says "Computerwiz Quiz"
+- Black background :)
+- Green, computery text :) 
+- Create a Heading that says "Computerwiz Quiz" :)
 - Entire page like a computer screen
 - Buttons looking like keyboard keys (animate if we have time)
 
