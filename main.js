@@ -5,3 +5,11 @@ console.log(pokeData)
 }
 
 fetchPoke()
+
+async function fetchTrivia () {
+    const triviaRequest = await fetch("https://opentdb.com/api.php?amount=10");
+    const triviaData = await triviaRequest.json();
+    console.log(triviaData)
+}
+
+fetchTrivia()
