@@ -62,21 +62,20 @@ async function fetchTrivia () {
     let uncodedQuestion = triviaData.results[0].question;
    // uncodedQuestion.replace(`&#039;`, "'");
     //uncodedQuestion.replace(`&quot;`, `"`);
-    //question.textContent = uncodedQuestion;
+    question.textContent = uncodedQuestion;
     let correctAnswer = triviaData.results[0].correct_answer;
     let incorrectAnswers = triviaData.results[0].incorrect_answers;
-     
     incorrectAnswers.push(correctAnswer);
-    
-    let i = 0;
-    while (incorrectAnswers.length > i) {
-        let randomIndex = Math.floor(Math.random() * incorrectAnswers.length);
-        answersArr.push(incorrectAnswers[randomIndex]);
-        i++;
-    }
-    console.log(answersArr);
-}
-fetchTrivia();
+        let currentIndex = incorrectAnswers.length,  randomIndex;
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+          [incorrectAnswers[currentIndex], incorrectAnswers[randomIndex]] = [
+            incorrectAnswers[randomIndex], incorrectAnswers[currentIndex]];
+        console.log(incorrectAnswers);}
+
+        fetchTrivia()
+
+
 
 const buttonOne = document.querySelector("#buttonOne")
 const buttonTwo = document.querySelector("#buttonTwo")
