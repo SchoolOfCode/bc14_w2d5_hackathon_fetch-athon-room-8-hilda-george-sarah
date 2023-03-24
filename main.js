@@ -56,6 +56,9 @@ const buttonOne = document.querySelector("#buttonOne")
 const buttonTwo = document.querySelector("#buttonTwo")
 const buttonThree = document.querySelector("#buttonThree")
 const buttonFour = document.querySelector("#buttonCorrect")
+let score = 0;
+let correctAnswer = 0;
+let incorrectAnswer = 0;
 
 async function fetchTrivia () {
     const triviaRequest = await fetch("https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple");
@@ -67,8 +70,8 @@ async function fetchTrivia () {
    // uncodedQuestion.replace(`&#039;`, "'");
     //uncodedQuestion.replace(`&quot;`, `"`);
     question.textContent = uncodedQuestion;
-    let correctAnswer = triviaData.results[0].correct_answer;
-    let incorrectAnswers = triviaData.results[0].incorrect_answers;
+    correctAnswer = triviaData.results[0].correct_answer;
+    incorrectAnswers = triviaData.results[0].incorrect_answers;
     incorrectAnswers.push(correctAnswer);
         let currentIndex = incorrectAnswers.length,  randomIndex;
           randomIndex = Math.floor(Math.random() * currentIndex);
@@ -80,7 +83,54 @@ async function fetchTrivia () {
         buttonOne.textContent = incorrectAnswers[0] 
         buttonTwo.textContent = incorrectAnswers[1] 
         buttonThree.textContent = incorrectAnswers[2]
-        buttonFour.textContent = incorrectAnswers[3]}
+        buttonFour.textContent = incorrectAnswers[3]
+            
+        
+    
+    
+    }
         fetchTrivia()
 //buttonOne.textContent 
 
+function scoreCount1 () {
+    if (correctAnswer == incorrectAnswers[0]){
+        score ++
+    }
+    else{
+        score = score - 1 ;
+    }
+    console.log(score)
+    fetchTrivia()
+}
+function scoreCount2 () {
+    if (correctAnswer == incorrectAnswers[1]){
+        score ++
+    }
+    else{
+        score = score - 1 ;
+    }
+    fetchTrivia()
+}
+function scoreCount3 () {
+    if (correctAnswer == incorrectAnswers[2]){
+        score ++
+    }
+    else{
+        score = score - 1 ;
+    }
+    fetchTrivia()
+}
+function scoreCount4 () {
+    if (correctAnswer == incorrectAnswers[3]){
+        score ++
+    }
+    else{
+        score = score - 1 ;
+    }
+    fetchTrivia()
+}
+
+buttonOne.addEventListener("click", scoreCount1);
+buttonTwo.addEventListener("click", scoreCount2);
+buttonThree.addEventListener("click", scoreCount3);
+buttonFour.addEventListener("click", scoreCount4);
