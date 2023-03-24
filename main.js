@@ -58,3 +58,4 @@ HTML/ CSS
 
 - When user has answered 10 questions, display a gif showing celebration
 - When user has answered 10 questions, display a message saying "You're a computerwiz!"
+*/
